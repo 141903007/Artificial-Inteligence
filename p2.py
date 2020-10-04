@@ -80,7 +80,7 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('jarecs6788@gmail.com', '6788446')
+    server.login('jarecs6788@gmail.com', '67884460')
     server.sendmail('jarecs6788@gmail.com', to, content)
     server.close()
 
@@ -113,7 +113,9 @@ if __name__ == "__main__":
             webbrowser.open("portal.coep.org.in")
 
         elif 'coep' in query:
-            webbrowser.open("coep.org.in")   
+            webbrowser.open("coep.org.in")
+        elif 'whatsapp' in query:
+            webbrowser.open("https://www.whatsapp.com/")   
 
 
         elif 'play music' in query:
@@ -130,6 +132,10 @@ if __name__ == "__main__":
             codePath = "C:\\Users\\Chandrakant\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
             os.startfile(codePath)
 
+        elif 'word' in query:
+            codePath = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Word 2010"
+            os.startfile(codePath)
+
         # elif 'email' in query:
         #     try:
         #         speak("What should I say?")
@@ -144,37 +150,48 @@ if __name__ == "__main__":
 
 
         elif 'email' in query:
+            to = ""
             try:
+                print("Please tell the name of receiver?")
                 speak("Please tell the name of receiver?")
-                content = takeCommand()
-                if content == 'vaibhavi':
-                    to = "ghumarevs19.comp@coep.ac.in"
-                    print("user said: ", content)
-                elif content == "siddhesh":
-                    to = "khadakesj19.comp@coep.ac.in"
-                    print("user said: ", content)
-                elif content == "abhishek":
-                    to = "raiav19.comp@coep.ac.in"
-                    print("user said: ", content)
-                elif content == "kajal":
-                    to = "kumbharkarkn19.comp@coep.ac.in"
-                    print("user said: ", content)
-                elif content == "prajwal":
-                    to = "datirpr18.comp@coep.ac.in"
-                    print("user said: ", content)
+                recv = takeCommand().lower()
+                if recv == 'vaibhavi':
+                    to = "vaibhavighumare28@gmail.com"
+                    print("Receiver name: ", recv, " & email is ", to, "& email is ", to)
+                elif recv == "siddhesh":
+                    to = "siddheshkhadake@gmail.com"
+                    print("Receiver name: ", recv, " & email is ", to)
+                elif recv == "abhishek":
+                    to = "abhishekrai2304@gmail.com"
+                    print("Receiver name: ", recv, " & email is ", to)
+                elif recv == "sushant":
+                    to = "jaresushant@gmail.com"
+                    print("Receiver name: ", recv, " & email is ", to)
+                elif recv == "kajal":
+                    to = "kumbharkarkajal@gmail.com"
+                    print("Receiver name: ", recv, " & email is ", to)
+                elif recv == "prajwal":
+                    to = "prajwal.coep@gmail.com"
+                    print("Receiver name: ", recv, " & email is ", to)
+
+                
                 else:
-                    to = "vishaljare11@gmail.com"
-                    print("user said: ", content)
+                    to = "chandrakantjare788@gmail.com"
+                    print("Receiver name: ", recv, " & email is ", to)
+                print(to)
 
                 # to = "chandrakantjare6788@gmail.com"
-                speak("Please tell what data which you want to sent?")
                 print("Please tell what data which you want to sent?")
+                speak("Please tell what data which you want to sent?")
+                
                 content = takeCommand()    
                 sendEmail(to, content)
+                print("Email has been sent!")
                 speak("Email has been sent!")
             except Exception as e:
-                print(e)
-                speak("Sorry my friend Chandrakant bhai. I am not able to send this email")
+                # print(e)
+                print("Sorry my friend Chandrakant. I am not able to send this email")
+                speak("Sorry my friend Chandrakant. I am not able to send this email")
 
 
         elif 'file' in query:
@@ -196,5 +213,6 @@ if __name__ == "__main__":
                
 
         elif 'quit' in query:
-            speak("quit")
+            print("Thank you!")
+            # speak("quit")
             break  
